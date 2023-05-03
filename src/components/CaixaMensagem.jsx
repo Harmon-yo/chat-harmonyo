@@ -1,6 +1,7 @@
 import React from "react";
 import { Grid, ListItem, ListItemText } from "@mui/material";
 import { Timestamp } from "firebase/firestore";
+import { useEffect } from "react";
 
 export default function CaixaMensagem(props) {
   var posicao = "left";
@@ -14,18 +15,12 @@ export default function CaixaMensagem(props) {
     props.timestamp.nanoseconds
   ).toDate();
 
-  var hoje = new Date();
-
-
-
-  const isToday =
-    data.getDate() == hoje.getDate() &&
-    data.getMonth() == hoje.getMonth() &&
-    data.getFullYear() == hoje.getFullYear();
 
     const hora = data.getHours() < 10 ? "0" + data.getHours() : data.getHours();
     const minuto = data.getMinutes() < 10 ? "0" + data.getMinutes() : data.getMinutes();
     const horario = hora + ":" + minuto;
+  
+   
 
   if (posicao == "left") {
     return (

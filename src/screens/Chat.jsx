@@ -28,6 +28,7 @@ import {
 } from "firebase/firestore";
 import ChatContainer from "../components/ChatContainer";
 import ProfileChat from "../components/ProfileChat";
+import ChatList from "../components/ChatList";
 
 const Chat = () => {
   const [activeChat, setActiveChat] = useState(null);
@@ -85,6 +86,7 @@ const Chat = () => {
         <head>
           <meta name="viewport" content="initial-scale=1, width=device-width" />
         </head>
+        
         <div className="chat-container">
           <div
             style={{
@@ -98,22 +100,14 @@ const Chat = () => {
             <ProfileChat />
 
             <div className="chat-list-container">
-              {chats.map((chat) => (
-                <ChatItem
-                  id={chat.id}
-                  key={chat.id}
-                  nome={chat.data.nome}
-                  ultimaMensagem={chat.data.ultimaMensagem}
-                  timestamp={chat.data.timestamp}
-                  lida={chat.data.lida}
-                  onClick={() => {
-                    setActiveChat(chat.id);
-                    setNomeChat(chat.data.nome);
-                    setSrcChat(chat.data.src);
-                    setMessages([]);
-                  }}
-                />
-              ))}
+              <ChatList
+                onChatClick={(chat) => {
+                  setActiveChat(chat.id);
+                  setNomeChat(chat.data.nome);
+                  setSrcChat(chat.data.src);
+                  setMessages([]);
+                }}/>
+             
             </div>
           </div>
           <Divider orientation="vertical" flexItem />

@@ -28,7 +28,6 @@ export function fromDateToFormatDate(dataPassada) {
 
   return dataFormatada;
 }
-
 export function fromTimestampToFormatHour(timestamp) {
     var data = new Timestamp(
         timestamp.seconds,
