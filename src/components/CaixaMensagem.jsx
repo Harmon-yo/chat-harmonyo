@@ -31,9 +31,8 @@ export default function CaixaMensagem(props) {
             xs={12}
             style={{
               backgroundColor: "#6ddb94",
-              width: "min-content",
-              maxWidth: "40%",
-              padding: "8px",
+              maxWidth: "fit-content",
+              padding: "10px",
               borderEndStartRadius: "2px",
               borderStartStartRadius: "20px",
               borderStartEndRadius: "20px",
@@ -69,8 +68,9 @@ export default function CaixaMensagem(props) {
             xs={12}
             style={{
               backgroundColor: "#6ddb94",
-              maxWidth: "40%",
-              padding: "8px",
+              width: "fit-content",
+              maxWidth: "60%",
+              padding: "10px",
               borderEndStartRadius: "20px",
               borderStartStartRadius: "20px",
               borderStartEndRadius: "20px",
@@ -82,6 +82,8 @@ export default function CaixaMensagem(props) {
               primary={props.texto}
               style={{
                 wordWrap: "break-word",
+                width: "fit-content",
+               
               }}
             ></ListItemText>
           </Grid>

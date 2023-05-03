@@ -75,8 +75,9 @@
   padding: 0 16px;
 }
 .dataNotificacao {
-  width: 100%;
+  width: min-content;
   height: 40px;
+  align-self: flex-end;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -94,7 +95,6 @@
   text-align: center;
 }
 .notificacao {
-  width: 100%;
   height: 50px;
   display: flex;
   align-items: center;
@@ -107,6 +107,7 @@
   border-radius: 50%;
   text-align: center;
   font-weight: 600;
+  size: 10px;
 }
 
 ::-webkit-scrollbar {
@@ -135,4 +136,21 @@
   height: 1px;
   background-color: #ccc;
   margin: 8px 0;
+}
+
+.empty-chat{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: Arial, Helvetica, sans-serif;
+  
+}
+
+.empty-chat p{
+  font-size: 20px;
+  color: #1f1f1f;
+  padding: 10px;
 }

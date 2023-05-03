@@ -86,7 +86,7 @@ const Chat = () => {
         <head>
           <meta name="viewport" content="initial-scale=1, width=device-width" />
         </head>
-        
+
         <div className="chat-container">
           <div
             style={{
@@ -106,8 +106,8 @@ const Chat = () => {
                   setNomeChat(chat.data.nome);
                   setSrcChat(chat.data.src);
                   setMessages([]);
-                }}/>
-             
+                }}
+              />
             </div>
           </div>
           <Divider orientation="vertical" flexItem />
@@ -125,7 +125,8 @@ const Chat = () => {
               </>
             ) : (
               <div className="empty-chat">
-                Selecione um chat para começar a conversar
+              <p>Olá! Seja bem vindo ao chat</p>
+              <p>Clique em algum chat para começar a conversar</p>
               </div>
             )}
           </div>
