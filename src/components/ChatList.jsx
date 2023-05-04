@@ -21,9 +21,6 @@ export default function ChatList(props) {
   const [chats, setChats] = React.useState([]);
   const [carregouConversas, setCarregouConversas] = React.useState(false);
 
-  sessionStorage.setItem("idUsuario", 1);
-  sessionStorage.setItem("tipo", "aluno");
-
   useEffect(() => {
     const q = query(
       collection(db, "chats"),

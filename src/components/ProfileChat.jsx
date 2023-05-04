@@ -16,7 +16,7 @@ export default function ProfileChat() {
           <Avatar src="https://www.w3schools.com/howto/img_avatar.png" />
         </ListItemIcon>
         <Typography variant="h6" component="div">
-          Nome do usuário
+          Nome do dasdasd
         </Typography>
       </ListItem>
       <Divider/>

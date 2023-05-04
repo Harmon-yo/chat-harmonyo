@@ -24,14 +24,14 @@ export default function CaixaMensagem(props) {
 
   if (posicao == "left") {
     return (
-      <ListItem key={props.key}>
+      <ListItem key={props.key} style={{maxWidth: "50%"}}>
         <Grid container>
           <Grid
             item
             xs={12}
             style={{
               backgroundColor: "#6ddb94",
-              maxWidth: "fit-content",
+              maxWidth:"fit-content",
               padding: "10px",
               borderEndStartRadius: "2px",
               borderStartStartRadius: "20px",
@@ -56,7 +56,7 @@ export default function CaixaMensagem(props) {
     );
   } else {
     return (
-      <ListItem key={props.key}>
+      <ListItem key={props.key}  style={{maxWidth: "50%", alignSelf:"flex-end"}}>
         <Grid
           container
           style={{
@@ -68,8 +68,7 @@ export default function CaixaMensagem(props) {
             xs={12}
             style={{
               backgroundColor: "#6ddb94",
-              width: "fit-content",
-              maxWidth: "60%",
+              maxWidth:"fit-content",
               padding: "10px",
               borderEndStartRadius: "20px",
               borderStartStartRadius: "20px",

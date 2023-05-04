@@ -24,13 +24,14 @@ export default function MessagesContainer(props) {
       .onSnapshot((snapshot) => {
         setMensagens([]);
         snapshot.docs.map((doc) => {
-           setMensagens((mensagens) => [
+          setMensagens((mensagens) => [
             ...mensagens,
             {
               id: doc.id,
               idEnviou: doc.data().idEnviou,
               texto: doc.data().texto,
               timestamp: doc.data().timestamp,
+              lida: doc.data().lida,
             },
           ]);
         });
@@ -39,6 +40,7 @@ export default function MessagesContainer(props) {
 
     return () => unsubscribe();
   }, [props.id]);
+
   useEffect(() => {
     if (refDiv.current) {
       refDiv.current.scrollTop = refDiv.current.scrollHeight;
@@ -46,16 +48,24 @@ export default function MessagesContainer(props) {
   }, [mensagens]);
 
   if (carregouMensagens) {
-    
     return (
       <div ref={refDiv} className="message-box-container">
         {mensagens.map((mensagem) => {
-             contador++;
+          if (!mensagem.lida) {
+            db.doc(`chats/${props.id}`)
+              .collection("mensagens")
+              .doc(mensagem.id)
+              .update({
+                lida: true,
+              });
+          }
+
+          contador++;
+
           if (
             contador === 1 ||
             ultimaData !== fromTimestampToFormatDate(mensagem.timestamp)
           ) {
-           
             ultimaData = fromTimestampToFormatDate(mensagem.timestamp);
             var dataExibir = "";
             if (
@@ -73,7 +83,7 @@ export default function MessagesContainer(props) {
             } else {
               dataExibir = fromTimestampToFormatDate(mensagem.timestamp);
             }
-        
+
             return (
               <>
                 <DivisorDate data={dataExibir} />
@@ -88,7 +98,6 @@ export default function MessagesContainer(props) {
             );
           }
 
-        
           return (
             <CaixaMensagem
               key={mensagem.id}
@@ -99,15 +108,13 @@ export default function MessagesContainer(props) {
               onLoad={() => console.log("aaa")}
             />
           );
-          
         })}
-       
       </div>
     );
-  }else{
+  } else {
     return (
-      <div style={{display: "flex", justifyContent:"center"}}>
-        <CircularProgress style={{color:"#6DDB94"}} />
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <CircularProgress style={{ color: "#6DDB94" }} />
       </div>
     );
   }
