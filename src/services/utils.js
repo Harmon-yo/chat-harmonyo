@@ -1,4 +1,4 @@
-import { Timestamp } from "firebase/firestore";
+import { Timestamp, serverTimestamp } from "firebase/firestore";
 import db from "./firebase";
 
 export function fromTimestampToFormatDate(timestamp) {
@@ -41,24 +41,23 @@ export function fromTimestampToFormatHour(timestamp) {
 export function enviarMensagem(mensagem, id) {
   const idEnviou = Number(sessionStorage.getItem("idUsuario"));
   const agora = new Date();
-  const timestamp = Timestamp.fromDate(agora);
   const texto = mensagem;
-
+  const msgAdd = {
+    idEnviou: idEnviou,
+    timestamp: serverTimestamp,
+    texto: mensagem,
+    lida: false
+  }
   db.doc(`chats/${id}`)
     .collection("mensagens")
-    .add({
-      idEnviou,
-      timestamp,
-      texto,
-      lida: false,
-    })
+    .add(msgAdd)
     .then(() => {
       var objDiv = document.getElementById("scroll");
       objDiv.scrollTop = objDiv.scrollHeight;
     });
   db.collection("chats").doc(id).update({
     ultimaMensagem: texto,
-    timestamp: timestamp,
+    timestamp: serverTimestamp,
   });
 }
 export function marcarMensagemComoLida(id) {
