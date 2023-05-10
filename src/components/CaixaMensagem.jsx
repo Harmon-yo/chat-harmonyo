@@ -30,13 +30,15 @@ export default function CaixaMensagem(props) {
             item
             xs={12}
             style={{
-              backgroundColor: "#6ddb94",
+              backgroundColor: "lightgray",
               maxWidth:"fit-content",
               padding: "10px",
+              paddingTop: "5px",
+              paddingBottom: "5px",
               borderEndStartRadius: "2px",
-              borderStartStartRadius: "20px",
-              borderStartEndRadius: "20px",
-              borderEndEndRadius: "20px",
+              borderStartStartRadius: "16px",
+              borderStartEndRadius: "16px",
+              borderEndEndRadius: "16px",
             }}
           >
             <ListItemText
@@ -70,9 +72,11 @@ export default function CaixaMensagem(props) {
               backgroundColor: "#6ddb94",
               maxWidth:"fit-content",
               padding: "10px",
-              borderEndStartRadius: "20px",
-              borderStartStartRadius: "20px",
-              borderStartEndRadius: "20px",
+              paddingTop: "5px",
+              paddingBottom: "5px",
+              borderEndStartRadius: "16px",
+              borderStartStartRadius: "16px",
+              borderStartEndRadius: "16px",
               borderEndEndRadius: "2px",
             }}
           >

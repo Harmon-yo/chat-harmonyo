@@ -86,49 +86,50 @@ const Chat = () => {
         <head>
           <meta name="viewport" content="initial-scale=1, width=device-width" />
         </head>
+        <div className="chat-page">
+          <div className="chat-container">
+            <div
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                width: "30%",
+                overflowY: "auto",
+                height: "max-content",
+              }}
+            >
+              <ProfileChat />
 
-        <div className="chat-container">
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              width: "30%",
-              overflowY: "auto",
-              height: "max-content",
-            }}
-          >
-            <ProfileChat />
-
-            <div className="chat-list-container">
-              <ChatList
-                onChatClick={(chat) => {
-                  setActiveChat(chat.id);
-                  setNomeChat(chat.data.nome);
-                  setSrcChat(chat.data.src);
-                  setMessages([]);
-                }}
-              />
-            </div>
-          </div>
-          <Divider orientation="vertical" flexItem />
-          <div className="message-container">
-            {activeChat ? (
-              <>
-                <ChatContainer
-                  id={activeChat}
-                  src={srcChat}
-                  nome={nomeChat}
-                  valueInput={inputValue}
-                  onChange={(e) => setInputValue(e)}
-                  onClick={() => setInputValue("")}
+              <div className="chat-list-container">
+                <ChatList
+                  onChatClick={(chat) => {
+                    setActiveChat(chat.id);
+                    setNomeChat(chat.data.nome);
+                    setSrcChat(chat.data.src);
+                    setMessages([]);
+                  }}
                 />
-              </>
-            ) : (
-              <div className="empty-chat">
-              <p>Olá! Seja bem vindo ao chat</p>
-              <p>Clique em algum chat para começar a conversar</p>
               </div>
-            )}
+            </div>
+            <Divider orientation="vertical" flexItem />
+            <div className="message-container">
+              {activeChat ? (
+                <>
+                  <ChatContainer
+                    id={activeChat}
+                    src={srcChat}
+                    nome={nomeChat}
+                    valueInput={inputValue}
+                    onChange={(e) => setInputValue(e)}
+                    onClick={() => setInputValue("")}
+                  />
+                </>
+              ) : (
+                <div className="empty-chat">
+                  <p>Olá! Seja bem vindo ao chat</p>
+                  <p>Clique em algum chat para começar a conversar</p>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </>

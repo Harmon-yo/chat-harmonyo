@@ -11,12 +11,12 @@ import {
 export default function ProfileChat() {
   return (
     <>
-      <ListItem>
+      <ListItem className="chat-profile">
         <ListItemIcon>
           <Avatar src="https://www.w3schools.com/howto/img_avatar.png" />
         </ListItemIcon>
         <Typography variant="h6" component="div">
-          Nome do dasdasd
+          Nome do Usuário
         </Typography>
       </ListItem>
       <Divider/>

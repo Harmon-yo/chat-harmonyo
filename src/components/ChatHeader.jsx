@@ -128,6 +128,7 @@ export default function ChatHeader(props) {
             display: "flex",
             width: "100%",
             flexDirection: "row",
+            height: "70px",
             justifyContent: "space-between",
           }}
         >
@@ -143,7 +144,7 @@ export default function ChatHeader(props) {
             button
             onClick={handleOpen}
           >
-            <SmsFailedIcon style={{ color: "red", width: "min-content" }} />
+            <SmsFailedIcon style={{ color: "grey", width: "min-content" , fontSize: "40px"}} />
           </ListItem>
         </List>
         <Divider />
