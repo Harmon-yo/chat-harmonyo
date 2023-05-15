@@ -3,6 +3,12 @@ import { ListItemText } from "@mui/material";
 import React from "react";
 
 export default function DivisorDate(props) {
+  
+  if(props.data === "00/00/0000"){
+    return(
+      <></>
+    )
+  }
   return (
     <div style={{width: "90%", alignSelf: "center", height: "fit-content"}}>
         <div style={{display: "flex", justifyContent: "center", alignItems: "center", height: "100%"}}>

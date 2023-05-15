@@ -49,10 +49,11 @@ export default function ChatItem(props) {
     setLida(true);
     marcarMensagemComoLida(props.id);
   }
-
+  
+  
   var data = new Timestamp(
-    props.timestamp.seconds,
-    props.timestamp.nanoseconds
+    props.timestamp?.seconds,
+    props.timestamp?.nanoseconds
   ).toDate();
 
   var hoje = new Date();

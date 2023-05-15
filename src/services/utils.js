@@ -2,6 +2,10 @@ import { Timestamp, serverTimestamp } from "firebase/firestore";
 import db from "./firebase";
 
 export function fromTimestampToFormatDate(timestamp) {
+ 
+  if(timestamp == null){
+    return "00/00/0000"
+  }
   var dataMensagem = new Timestamp(
     timestamp.seconds,
     timestamp.nanoseconds
@@ -22,6 +26,7 @@ export function fromTimestampToFormatDate(timestamp) {
   return dataMensagemFormatada;
 }
 export function fromDateToFormatDate(dataPassada) {
+  
   var data = new Date(dataPassada);
   const dia = data.getDate() < 10 ? "0" + data.getDate() : data.getDate();
   const mes = data.getMonth() < 10 ? "0" + data.getMonth() : data.getMonth();
@@ -30,6 +35,9 @@ export function fromDateToFormatDate(dataPassada) {
   return dataFormatada;
 }
 export function fromTimestampToFormatHour(timestamp) {
+  if(timestamp == null){
+    return "00/00/0000"
+  }
   var data = new Timestamp(timestamp.seconds, timestamp.nanoseconds).toDate();
   const hora = data.getHours() < 10 ? "0" + data.getHours() : data.getHours();
   const minuto =
@@ -42,9 +50,10 @@ export function enviarMensagem(mensagem, id) {
   const idEnviou = Number(sessionStorage.getItem("idUsuario"));
   const agora = new Date();
   const texto = mensagem;
+  const timestamp = serverTimestamp()
   const msgAdd = {
     idEnviou: idEnviou,
-    timestamp: serverTimestamp,
+    timestamp: timestamp,
     texto: mensagem,
     lida: false
   }
@@ -57,7 +66,7 @@ export function enviarMensagem(mensagem, id) {
     });
   db.collection("chats").doc(id).update({
     ultimaMensagem: texto,
-    timestamp: serverTimestamp,
+    timestamp: timestamp,
   });
 }
 export function marcarMensagemComoLida(id) {
