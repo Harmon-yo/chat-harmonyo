@@ -1,4 +1,5 @@
 import {
+  Box,
   ListItem,
   ListItemAvatar,
   ListItemText,
@@ -6,6 +7,7 @@ import {
   Divider,
 } from "@mui/material";
 import React, { useEffect } from "react";
+import { chat } from "../styles/Chat.Styles";
 import "../css/chat.css";
 import {
   contarMensagensNaoLidas,
@@ -98,7 +100,7 @@ export default function ChatItem(props) {
             alignSelf: "flex-end",
           }}
         >
-          <div className="dataNotificacao">
+          <Box sx={chat().dataNotificacao}>
             <div className="tempo">{isToday ? horario : dataFormatada}</div>
             {qtdNaoLidas != 0 ?  
             <div className="notificacao">
@@ -106,7 +108,7 @@ export default function ChatItem(props) {
             </div>
              : null}
            
-          </div>
+          </Box>
         </ListItemText>
       </ListItem>
       <Divider variant="fullWidth" />

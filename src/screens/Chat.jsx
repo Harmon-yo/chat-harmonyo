@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "react-chat-elements/dist/main.css";
+import { chat } from "../styles/Chat.Styles.js";
 import "../css/chat.css";
 import db from "../services/firebase";
 import ChatItem from "../components/ChatItem";
@@ -83,23 +84,12 @@ const Chat = () => {
   if (carregouConversas) {
     return (
       <>
-        <head>
-          <meta name="viewport" content="initial-scale=1, width=device-width" />
-        </head>
-        <div className="chat-page">
-          <div className="chat-container">
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                width: "30%",
-                overflowY: "auto",
-                height: "max-content",
-              }}
-            >
+        <Box sx={chat().chatPage}>
+          <Box sx={chat().chatContainer}>
+            <Box sx={chat().chatLeft}>
               <ProfileChat />
 
-              <div className="chat-list-container">
+              <Box sx={chat().chatListContainer}>
                 <ChatList
                   onChatClick={(chat) => {
                     setActiveChat(chat.id);
@@ -108,10 +98,10 @@ const Chat = () => {
                     setMessages([]);
                   }}
                 />
-              </div>
-            </div>
+              </Box>
+            </Box>
             <Divider orientation="vertical" flexItem />
-            <div className="message-container">
+            <Box sx={chat().messageContainer}>
               {activeChat ? (
                 <>
                   <ChatContainer
@@ -124,14 +114,14 @@ const Chat = () => {
                   />
                 </>
               ) : (
-                <div className="empty-chat">
+                <Box sx={chat().emptyChat}>
                   <p>Olá! Seja bem vindo ao chat</p>
                   <p>Clique em algum chat para começar a conversar</p>
-                </div>
+                </Box>
               )}
-            </div>
-          </div>
-        </div>
+            </Box>
+          </Box>
+        </Box>
       </>
     );
   } else {

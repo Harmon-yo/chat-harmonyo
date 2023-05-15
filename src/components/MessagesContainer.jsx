@@ -2,6 +2,8 @@ import React, { useRef, useEffect } from "react";
 import CaixaMensagem from "./CaixaMensagem";
 import db from "../services/firebase";
 import DivisorDate from "./DivisorDate";
+import { chat } from "../styles/Chat.Styles.js";
+import { Box } from "@mui/material";
 import {
   fromDateToFormatDate,
   fromTimestampToFormatDate,
@@ -49,7 +51,7 @@ export default function MessagesContainer(props) {
 
   if (carregouMensagens) {
     return (
-      <div ref={refDiv} className="message-box-container">
+      <Box ref={refDiv} sx={chat().messageBoxContainer}>
         {mensagens.map((mensagem) => {
           if (!mensagem.lida) {
             db.doc(`chats/${props.id}`)
@@ -109,7 +111,7 @@ export default function MessagesContainer(props) {
             />
           );
         })}
-      </div>
+      </Box>
     );
   } else {
     return (
