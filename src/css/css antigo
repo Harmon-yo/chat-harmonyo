@@ -7,12 +7,9 @@
   border: none;
 }
 :root {
-  --dark-color-background: #1f1f1f;
+  --dark-color-background: #313131;
   --light-green-color-background: #1db95440;
   --green-color-background: #1db954;
-}
-.chat-profile{
-  height: 70px;
 }
 
 .input-box {
@@ -51,36 +48,6 @@
   justify-content: flex-start;
   align-items: flex-start;
   padding: 0 16px;
-}
-
-.ultima-mensagem {
-  min-width: 100%;
-  font-size: 14px;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  color: #ccc;
-}
-.tempo {
-  width: 100%;
-  text-align: center;
-  font-size: 14px;
-  color: rgb(121, 121, 121);
-}
-.notificacao {
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.notificacao-numero {
-  background-color: var(--light-green-color-background);
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  text-align: center;
-  font-weight: 600;
-  size: 10px;
 }
 
 ::-webkit-scrollbar {

@@ -16,6 +16,7 @@ import {
   MenuItem,
 } from "@mui/material";
 import SmsFailedIcon from "@mui/icons-material/SmsFailed";
+import { chat } from "../styles/Chat.Styles";
 
 import {
   Button,
@@ -123,15 +124,7 @@ export default function ChatHeader(props) {
       </Dialog>
 
       <Grid item xs={3} style={{ borderRight: "500" }}>
-        <List
-          style={{
-            display: "flex",
-            width: "100%",
-            flexDirection: "row",
-            height: "70px",
-            justifyContent: "space-between",
-          }}
-        >
+        <List sx={chat().chatHeader}>
           <ListItem key={props.nome}>
             <ListItemIcon>
               <Avatar alt={props.nome} src={props.src} />

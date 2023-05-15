@@ -79,7 +79,7 @@ export default function ChatItem(props) {
         button
         onClick={handleClick}
         alignItems="flex-start"
-        style={{ width: "100%", flexDirection: "row" }}
+        style={{ width: "100%", flexDirection: "row" , background: 'red'}}
       >
         <ListItemAvatar>
           <Avatar alt="Remy Sharp" src={props.src} />
@@ -87,25 +87,17 @@ export default function ChatItem(props) {
         <ListItemText
           primary={props.nome}
           secondary={
-            <div className="ultima-mensagem">{props.ultimaMensagem}</div>
+            <Box sx={chat().ultimaMensagem}>{props.ultimaMensagem}</Box>
           }
           style={{ width: "40%" }}
         />
-        <ListItemText
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            width: "min-content",
-            alignSelf: "flex-end",
-          }}
-        >
+        <ListItemText sx={chat().dataBox}>
           <Box sx={chat().dataNotificacao}>
-            <div className="tempo">{isToday ? horario : dataFormatada}</div>
+            <Box sx={chat().tempo}>{isToday ? horario : dataFormatada}</Box>
             {qtdNaoLidas != 0 ?  
-            <div className="notificacao">
-              <div className="notificacao-numero">{qtdNaoLidas}</div>
-            </div>
+            <Box sx={chat().notificacao}>
+              <Box sx={chat().notificacaoNumero}>{qtdNaoLidas}</Box>
+            </Box>
              : null}
            
           </Box>

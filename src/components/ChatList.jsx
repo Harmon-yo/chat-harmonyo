@@ -10,6 +10,8 @@ import {
   or,
   orderBy,
 } from "firebase/firestore";
+import { Box } from "@mui/material";
+import { chat } from "../styles/Chat.Styles";
 
 export default function ChatList(props) {
   const [activeChat, setActiveChat] = React.useState(null);
@@ -59,6 +61,7 @@ export default function ChatList(props) {
   }, []);
   return (
     <>
+      
       {chats.map((chat) => (
         <ChatItem
           id={chat.id}
@@ -73,6 +76,7 @@ export default function ChatList(props) {
           }}
         />
       ))}
+      
     </>
   );
 }

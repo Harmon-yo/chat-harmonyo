@@ -67,6 +67,14 @@ const chatStyles = () => {
                 height: '100%',
             },
 
+            dataBox: {
+                display: 'flex',
+                justifyContent: 'right',
+                alignItems: 'center',
+                width: 'min-content',
+                alignSelf: 'flex-end',
+            },
+
             dataNotificacao: {
                 width: 'min-content',
                 height: 'min-content',
@@ -77,11 +85,63 @@ const chatStyles = () => {
                 fontSize: "14px"
             },
 
-            chatProfile:{
+            tempo: {
+                width: '100%',
+                textAlign: 'center',
+                fontsize: '14px',
+                color: '#797979',
+            },
+
+            notificacao: {
+                height: '50px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+            },
+
+            notificacaoNumero: {
+                backgroundColor: '#1db95440',
+                width: '20px',
+                height: '20px',
+                borderRadius: '50%',
+                textAlign: 'center',
+                fontWeight: '600',
+                size: '10px',
+            },
+
+            chatProfile: {
                 height: '70px',
                 backgroundColor: '#1f1f1f',
                 color: 'white',
                 borderRadius: '8px 0px 0px 0px'
+            },
+
+            chatHeader: {
+                display: "flex",
+                flexDirection: "row",
+                height: "70px",
+                backgroundColor: '#313131',
+                width: "100%",
+                justifyContent: "space-between",
+                borderRadius: '0px 8px 0px 0px',
+                color: 'white',
+            },
+
+            dividerChat: {
+                background: '#1f1f1f',
+            },
+
+            ultimaMensagem: {
+                minWidth: '100%',
+                fontSize: '14px',
+                textOverflow: 'ellipsis',
+                whiteSpace: 'nowrap',
+                overflow: 'hidden',
+                color: '#ccc',
+            },
+
+            chatList: {
+                background: 'red',
             },
         }
     )
