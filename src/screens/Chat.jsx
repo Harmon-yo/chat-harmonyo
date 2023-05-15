@@ -41,8 +41,8 @@ const Chat = () => {
   const [chats, setChats] = useState([]);
   const [carregouConversas, setCarregouConversas] = useState(false);
 
-  sessionStorage.setItem("idUsuario", 1);
-  sessionStorage.setItem("tipo", "aluno");
+  sessionStorage.setItem("idUsuario", 2);
+  sessionStorage.setItem("tipo", "professor");
 
   useEffect(() => {
     const q = query(

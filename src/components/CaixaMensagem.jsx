@@ -5,33 +5,36 @@ import { useEffect } from "react";
 
 export default function CaixaMensagem(props) {
   var posicao = "left";
-  
+
   if (props.idEnviou == Number(sessionStorage.getItem("idUsuario"))) {
     posicao = "right";
   }
+  var data;
+  if (props.timestamp != null) {
+    data = new Timestamp(
+      props.timestamp.seconds,
+      props.timestamp.nanoseconds
+    ).toDate();
+  }else{
+    console.log(props)
+    data = new Date();
+  }
 
-  var data = new Timestamp(
-    props.timestamp.seconds,
-    props.timestamp.nanoseconds
-  ).toDate();
-
-
-    const hora = data.getHours() < 10 ? "0" + data.getHours() : data.getHours();
-    const minuto = data.getMinutes() < 10 ? "0" + data.getMinutes() : data.getMinutes();
-    const horario = hora + ":" + minuto;
-  
-   
+  const hora = data.getHours() < 10 ? "0" + data.getHours() : data.getHours();
+  const minuto =
+    data.getMinutes() < 10 ? "0" + data.getMinutes() : data.getMinutes();
+  const horario = hora + ":" + minuto;
 
   if (posicao == "left") {
     return (
-      <ListItem key={props.key} style={{maxWidth: "50%"}}>
+      <ListItem key={props.key} style={{ maxWidth: "50%" }}>
         <Grid container>
           <Grid
             item
             xs={12}
             style={{
               backgroundColor: "lightgray",
-              maxWidth:"fit-content",
+              maxWidth: "fit-content",
               padding: "10px",
               paddingTop: "5px",
               paddingBottom: "5px",
@@ -58,7 +61,10 @@ export default function CaixaMensagem(props) {
     );
   } else {
     return (
-      <ListItem key={props.key}  style={{maxWidth: "50%", alignSelf:"flex-end"}}>
+      <ListItem
+        key={props.key}
+        style={{ maxWidth: "50%", alignSelf: "flex-end" }}
+      >
         <Grid
           container
           style={{
@@ -70,7 +76,7 @@ export default function CaixaMensagem(props) {
             xs={12}
             style={{
               backgroundColor: "#6ddb94",
-              maxWidth:"fit-content",
+              maxWidth: "fit-content",
               padding: "10px",
               paddingTop: "5px",
               paddingBottom: "5px",
@@ -86,7 +92,6 @@ export default function CaixaMensagem(props) {
               style={{
                 wordWrap: "break-word",
                 width: "fit-content",
-               
               }}
             ></ListItemText>
           </Grid>
