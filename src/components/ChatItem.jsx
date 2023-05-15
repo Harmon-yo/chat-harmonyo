@@ -79,9 +79,8 @@ export default function ChatItem(props) {
       <ListItem
         button
         onClick={handleClick}
-        alignItems="flex-start"
-        style={{ width: "100%", flexDirection: "row" , background: 'red'}}
-      >
+        sx={chat().chatItem}
+        >
         <ListItemAvatar>
           <Avatar alt="Remy Sharp" src={props.src} />
         </ListItemAvatar>
@@ -104,7 +103,7 @@ export default function ChatItem(props) {
           </Box>
         </ListItemText>
       </ListItem>
-      <Divider variant="fullWidth" />
+      <Divider variant="fullWidth" sx={chat().dividerChat}/>
     </>
   );
 }

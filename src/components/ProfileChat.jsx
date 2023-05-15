@@ -20,7 +20,6 @@ export default function ProfileChat() {
           Nome do Usuário
         </Typography>
       </ListItem>
-      <Divider/>
     </>
   );
 }

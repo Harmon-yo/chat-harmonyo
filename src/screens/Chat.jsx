@@ -41,8 +41,8 @@ const Chat = () => {
   const [chats, setChats] = useState([]);
   const [carregouConversas, setCarregouConversas] = useState(false);
 
-  sessionStorage.setItem("idUsuario", 2);
-  sessionStorage.setItem("tipo", "professor");
+  sessionStorage.setItem("idUsuario", 1);
+  sessionStorage.setItem("tipo", "aluno");
 
   useEffect(() => {
     const q = query(
@@ -125,7 +125,7 @@ const Chat = () => {
       </>
     );
   } else {
-    return <CircularProgress color="success" />;
+    return <CircularProgress color="success"/>;
   }
 };
 

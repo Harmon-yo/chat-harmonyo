@@ -26,11 +26,12 @@ const chatStyles = () => {
             },
 
             chatLeft: {
-                display: "flex",
-                flexDirection: "column",
-                width: "30%",
-                overflowY: "auto",
-                height: "max-content",
+                backgroundColor: '#6b6b6b',
+                display: 'flex',
+                flexDirection: 'column',
+                width: '30%',
+                overflowY: 'auto',
+                borderRadius: '8px 0px 0px 8px',
             },
 
             chatListContainer: {
@@ -82,7 +83,7 @@ const chatStyles = () => {
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'space-evenly',
-                fontSize: "14px"
+                fontSize: '14px'
             },
 
             tempo: {
@@ -117,12 +118,12 @@ const chatStyles = () => {
             },
 
             chatHeader: {
-                display: "flex",
-                flexDirection: "row",
-                height: "70px",
+                display: 'flex',
+                flexDirection: 'row',
+                height: '70px',
                 backgroundColor: '#313131',
-                width: "100%",
-                justifyContent: "space-between",
+                width: '100%',
+                justifyContent: 'space-between',
                 borderRadius: '0px 8px 0px 0px',
                 color: 'white',
             },
@@ -140,9 +141,13 @@ const chatStyles = () => {
                 color: '#ccc',
             },
 
-            chatList: {
-                background: 'red',
-            },
+            chatItem: {
+                alignItems: 'flex-start',
+                width: '100%', 
+                flexDirection: 'row' , 
+                background: '#363636', 
+                color: 'white'
+            }
         }
     )
 }
