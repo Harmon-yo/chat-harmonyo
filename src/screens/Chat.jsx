@@ -100,7 +100,6 @@ const Chat = () => {
                 />
               </Box>
             </Box>
-            <Divider orientation="vertical" flexItem sx={chat().dividerChat}/>
             <Box sx={chat().messageContainer}>
               {activeChat ? (
                 <>

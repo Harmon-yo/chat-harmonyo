@@ -26,7 +26,7 @@ const chatStyles = () => {
             },
 
             chatLeft: {
-                backgroundColor: '#6b6b6b',
+                backgroundColor: '#d5d5d5',
                 display: 'flex',
                 flexDirection: 'column',
                 width: '30%',
@@ -34,6 +34,13 @@ const chatStyles = () => {
                 borderRadius: '8px 0px 0px 8px',
             },
 
+            chatItem: {
+                alignItems: 'flex-start',
+                width: '100%',
+                flexDirection: 'row',
+                background: '#a7a7a7',
+            },
+            
             chatListContainer: {
                 overflowY: 'auto',
                 height: 'max-content',
@@ -129,7 +136,7 @@ const chatStyles = () => {
             },
 
             dividerChat: {
-                background: '#1f1f1f',
+                background: '#737373',
             },
 
             ultimaMensagem: {
@@ -138,15 +145,23 @@ const chatStyles = () => {
                 textOverflow: 'ellipsis',
                 whiteSpace: 'nowrap',
                 overflow: 'hidden',
-                color: '#ccc',
+                color: '#383838',
             },
 
-            chatItem: {
-                alignItems: 'flex-start',
-                width: '100%', 
-                flexDirection: 'row' , 
-                background: '#363636', 
-                color: 'white'
+            voltar: {
+                display: 'flex',
+                justifyContent: 'left',
+                width: '50px',
+                height: '40px',
+                padding: '0px',
+            },
+
+            setaVoltar: {
+                width: '35px',
+                height: '35px',
+                padding: '5px',
+                borderRadius: '100%',
+                background: '#363636',
             }
         }
     )
