@@ -1,9 +1,7 @@
 import React from "react";
 import {
-  CircularProgress,
   Fab,
   Grid,
-  TextField,
   InputBase,
 } from "@mui/material";
 import Send from "@mui/icons-material/Send";

@@ -1,16 +1,15 @@
 import React from "react";
 import { Grid, ListItem, ListItemText } from "@mui/material";
 import { Timestamp } from "firebase/firestore";
-import { useEffect } from "react";
 
 export default function CaixaMensagem(props) {
   var posicao = "left";
 
-  if (props.idEnviou == Number(sessionStorage.getItem("idUsuario"))) {
+  if (props.idEnviou === Number(sessionStorage.getItem("idUsuario"))) {
     posicao = "right";
   }
   var data;
-  if (props.timestamp != null) {
+  if (props.timestamp !== null) {
     data = new Timestamp(
       props.timestamp.seconds,
       props.timestamp.nanoseconds
@@ -25,7 +24,7 @@ export default function CaixaMensagem(props) {
     data.getMinutes() < 10 ? "0" + data.getMinutes() : data.getMinutes();
   const horario = hora + ":" + minuto;
 
-  if (posicao == "left") {
+  if (posicao === "left") {
     return (
       <ListItem key={props.key} style={{ maxWidth: "50%" }}>
         <Grid container>

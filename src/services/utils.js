@@ -48,7 +48,6 @@ export function fromTimestampToFormatHour(timestamp) {
 }
 export function enviarMensagem(mensagem, id) {
   const idEnviou = Number(sessionStorage.getItem("idUsuario"));
-  const agora = new Date();
   const texto = mensagem;
   const timestamp = serverTimestamp()
   const msgAdd = {

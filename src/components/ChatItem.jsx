@@ -10,7 +10,6 @@ import React, { useEffect } from "react";
 import { chat } from "../styles/Chat.Styles";
 import "../css/chat.css";
 import {
-  contarMensagensNaoLidas,
   marcarMensagemComoLida,
 } from "../services/utils";
 import { Timestamp } from "firebase/firestore";
@@ -59,9 +58,9 @@ export default function ChatItem(props) {
   var hoje = new Date();
 
   const isToday =
-    data.getDate() == hoje.getDate() &&
-    data.getMonth() == hoje.getMonth() &&
-    data.getFullYear() == hoje.getFullYear();
+    data.getDate() === hoje.getDate() &&
+    data.getMonth() === hoje.getMonth() &&
+    data.getFullYear() === hoje.getFullYear();
 
   var dataFormatada = fromTimestampToFormatDate(props.timestamp);
 
@@ -94,7 +93,7 @@ export default function ChatItem(props) {
         <ListItemText sx={chat().dataBox}>
           <Box sx={chat().dataNotificacao}>
             <Box sx={chat().tempo}>{isToday ? horario : dataFormatada}</Box>
-            {qtdNaoLidas != 0 ?  
+            {qtdNaoLidas !== 0 ?  
             <Box sx={chat().notificacao}>
               <Box sx={chat().notificacaoNumero}>{qtdNaoLidas}</Box>
             </Box>

@@ -1,6 +1,3 @@
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-import CaixaMensagem from "./components/CaixaMensagem";
 import Chat from "./screens/Chat";
 
 

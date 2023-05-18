@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "../css/chat.css";
 import db from "../services/firebase";
 import ChatItem from "./ChatItem";
@@ -10,16 +10,8 @@ import {
   or,
   orderBy,
 } from "firebase/firestore";
-import { Box } from "@mui/material";
-import { chat } from "../styles/Chat.Styles";
 
 export default function ChatList(props) {
-  const [activeChat, setActiveChat] = React.useState(null);
-  const [messages, setMessages] = React.useState([]);
-  const [inputValue, setInputValue] = React.useState("");
-  const [contador, setContador] = React.useState(0);
-  const [nomeChat, setNomeChat] = React.useState("");
-  const [srcChat, setSrcChat] = React.useState("");
   const [chats, setChats] = React.useState([]);
   const [carregouConversas, setCarregouConversas] = React.useState(false);
 
@@ -41,11 +33,11 @@ export default function ChatList(props) {
             idAluno: doc.data().idAluno,
             idProfessor: doc.data().idProfessor,
             nome:
-              sessionStorage.tipo == "aluno"
+              sessionStorage.tipo === "aluno"
                 ? doc.data().nomeProfessor
                 : doc.data().nomeAluno,
             src:
-              sessionStorage.tipo == "aluno"
+              sessionStorage.tipo === "aluno"
                 ? doc.data().srcProfessor
                 : doc.data().srcAluno,
             ultimaMensagem: doc.data().ultimaMensagem,

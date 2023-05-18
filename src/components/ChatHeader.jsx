@@ -9,7 +9,6 @@ import {
   TextField,
   Avatar,
   List,
-  Icon,
   FormControl,
   InputLabel,
   Select,
@@ -35,10 +34,10 @@ export default function ChatHeader(props) {
   const [erro, setErro] = React.useState(false);
 
   const handleChange = (event) => {
-    if (event.target.value == 3) {
+    if (event.target.value === 3) {
       setEhOutro(true);
     }
-    if (event.target.value != null) {
+    if (event.target.value !== null) {
       setErro(false);
     }
     setDenuncia(event.target.value);
@@ -54,12 +53,12 @@ export default function ChatHeader(props) {
 
   const denunciar = () => {
     if (ehOutro) {
-      if (outro == "") {
+      if (outro === "") {
         setErro(true);
         return;
       }
       setErro(false);
-    } else if (denuncia == "") {
+    } else if (denuncia === "") {
       setErro(true);
       return;
     }
@@ -137,7 +136,7 @@ export default function ChatHeader(props) {
             button
             onClick={handleOpen}
           >
-            <SmsFailedIcon style={{ color: "grey", width: "min-content" , fontSize: "40px"}} />
+            <SmsFailedIcon sx={chat().btnDenuncia} />
           </ListItem>
         </List>
         <Divider />

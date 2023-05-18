@@ -162,6 +162,12 @@ const chatStyles = () => {
                 padding: '5px',
                 borderRadius: '100%',
                 background: '#363636',
+            },
+
+            btnDenuncia: {
+                color: 'grey', 
+                width: 'min-content', 
+                fontSize: '40px',
             }
         }
     )

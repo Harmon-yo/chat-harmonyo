@@ -3,21 +3,9 @@ import "react-chat-elements/dist/main.css";
 import { chat } from "../styles/Chat.Styles.js";
 import "../css/chat.css";
 import db from "../services/firebase";
-import ChatItem from "../components/ChatItem";
 import {
-  Avatar,
   Box,
-  Button,
-  Chip,
   CircularProgress,
-  Container,
-  Divider,
-  Grid,
-  ListItem,
-  ListItemIcon,
-  ListItemText,
-  Stack,
-  Typography,
 } from "@mui/material";
 import {
   query,
@@ -35,7 +23,6 @@ const Chat = () => {
   const [activeChat, setActiveChat] = useState(null);
   const [messages, setMessages] = useState([]);
   const [inputValue, setInputValue] = useState("");
-  const [contador, setContador] = useState(0);
   const [nomeChat, setNomeChat] = useState("");
   const [srcChat, setSrcChat] = useState("");
   const [chats, setChats] = useState([]);
@@ -62,11 +49,11 @@ const Chat = () => {
             idAluno: doc.data().idAluno,
             idProfessor: doc.data().idProfessor,
             nome:
-              sessionStorage.tipo == "aluno"
+              sessionStorage.tipo === "aluno"
                 ? doc.data().nomeProfessor
                 : doc.data().nomeAluno,
             src:
-              sessionStorage.tipo == "aluno"
+              sessionStorage.tipo === "aluno"
                 ? doc.data().srcProfessor
                 : doc.data().srcAluno,
             ultimaMensagem: doc.data().ultimaMensagem,

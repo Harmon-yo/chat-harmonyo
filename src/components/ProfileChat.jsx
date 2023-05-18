@@ -1,6 +1,5 @@
 import React from "react";
 
-import { Link } from "react-router-dom";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 import {
@@ -12,6 +11,7 @@ import {
 import { chat } from "../styles/Chat.Styles";
 
 export default function ProfileChat() {
+
 
   return (
     <>
