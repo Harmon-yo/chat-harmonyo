@@ -13,32 +13,29 @@ const chatStyles = () => {
                 alignItems: 'center',
                 width: '100vw',
                 height: '100vh',
-                backgroundColor: '#1db954',
+                backgroundColor: '#F5F4F7',
             },
 
             chatContainer: {
                 backgroundColor: 'white',
                 display: 'flex',
-                width: '97%',
-                height: '93%',
-                borderRadius: '8px',
-                boxShadow: '#1f1f1f 5px 5px 8px',
-            },
+                width: '100%',
+                height: '100%',
+                         },
 
             chatLeft: {
-                backgroundColor: '#d5d5d5',
+                background: ' #F5F4F7',
                 display: 'flex',
                 flexDirection: 'column',
                 width: '30%',
                 overflowY: 'auto',
-                borderRadius: '8px 0px 0px 8px',
             },
 
             chatItem: {
                 alignItems: 'flex-start',
                 width: '100%',
                 flexDirection: 'row',
-                background: '#a7a7a7',
+                background: 'rgba(0,0,0,0)',
             },
             
             chatListContainer: {
@@ -119,24 +116,22 @@ const chatStyles = () => {
 
             chatProfile: {
                 height: '70px',
-                backgroundColor: '#1f1f1f',
+                backgroundColor: '#03a33b',
                 color: 'white',
-                borderRadius: '8px 0px 0px 0px'
             },
 
             chatHeader: {
                 display: 'flex',
                 flexDirection: 'row',
                 height: '70px',
-                backgroundColor: '#313131',
+                backgroundColor: '#03B441',
                 width: '100%',
                 justifyContent: 'space-between',
-                borderRadius: '0px 8px 0px 0px',
                 color: 'white',
             },
 
             dividerChat: {
-                background: '#737373',
+                background: '#F5F4F7',
             },
 
             ultimaMensagem: {
@@ -165,9 +160,27 @@ const chatStyles = () => {
             },
 
             btnDenuncia: {
-                color: 'grey', 
+                color: 'white', 
                 width: 'min-content', 
                 fontSize: '40px',
+            },
+
+            backgroundBloqueado: {
+                display: "flex",
+                width: "100%",
+                backgroundColor: "#03B441",
+                height: "20%",
+                padding: "10px",
+                justifyContent: "center",
+                alignItems: "center"
+                
+            },
+
+            textoBloqueado:{
+                fontSize: "18px",
+                fontWeight: "550",
+                fontFamily: 'Arial, Helvetica, sans-serif',
+                textAlign: "center"
             }
         }
     )

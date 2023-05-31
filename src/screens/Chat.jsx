@@ -26,7 +26,9 @@ const Chat = () => {
   const [nomeChat, setNomeChat] = useState("");
   const [srcChat, setSrcChat] = useState("");
   const [chats, setChats] = useState([]);
+  const [bloqueado, setBloqueado] = useState(false)
   const [carregouConversas, setCarregouConversas] = useState(false);
+  const [idUsuarioConversa, setIdUsuarioConversa] = useState(0)
 
   sessionStorage.setItem("idUsuario", 1);
   sessionStorage.setItem("tipo", "aluno");
@@ -59,6 +61,7 @@ const Chat = () => {
             ultimaMensagem: doc.data().ultimaMensagem,
             lida: doc.data().lida,
             timestamp: doc.data().timestamp,
+            bloqueado: doc.data().bloqueado
           },
         }))
       );
@@ -79,10 +82,18 @@ const Chat = () => {
               <Box sx={chat().chatListContainer}>
                 <ChatList
                   onChatClick={(chat) => {
+                    
+                    if(sessionStorage.tipo === "aluno"){
+                      setIdUsuarioConversa(chat.data.idProfessor)
+                    }else{
+                      setIdUsuarioConversa(chat.data.idAluno)
+                    }
+
                     setActiveChat(chat.id);
                     setNomeChat(chat.data.nome);
                     setSrcChat(chat.data.src);
                     setMessages([]);
+                    setBloqueado(chat.data.bloqueado)
                   }}
                 />
               </Box>
@@ -94,7 +105,9 @@ const Chat = () => {
                     id={activeChat}
                     src={srcChat}
                     nome={nomeChat}
+                    isBloqueado={bloqueado}
                     valueInput={inputValue}
+                    idUsuarioConversa = {idUsuarioConversa}
                     onChange={(e) => setInputValue(e)}
                     onClick={() => setInputValue("")}
                   />

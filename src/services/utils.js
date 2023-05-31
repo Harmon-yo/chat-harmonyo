@@ -2,8 +2,8 @@ import { Timestamp, serverTimestamp } from "firebase/firestore";
 import db from "./firebase";
 
 export function fromTimestampToFormatDate(timestamp) {
- 
-  if(timestamp == null){
+
+  if (timestamp == null) {
     return "00/00/0000"
   }
   var dataMensagem = new Timestamp(
@@ -26,7 +26,7 @@ export function fromTimestampToFormatDate(timestamp) {
   return dataMensagemFormatada;
 }
 export function fromDateToFormatDate(dataPassada) {
-  
+
   var data = new Date(dataPassada);
   const dia = data.getDate() < 10 ? "0" + data.getDate() : data.getDate();
   const mes = data.getMonth() < 10 ? "0" + data.getMonth() : data.getMonth();
@@ -35,7 +35,7 @@ export function fromDateToFormatDate(dataPassada) {
   return dataFormatada;
 }
 export function fromTimestampToFormatHour(timestamp) {
-  if(timestamp == null){
+  if (timestamp == null) {
     return "00/00/0000"
   }
   var data = new Timestamp(timestamp.seconds, timestamp.nanoseconds).toDate();
@@ -82,5 +82,25 @@ export function marcarMensagemComoLida(id) {
       });
     });
 }
+export function denunciarUsuario(objetoDenuncia) {
+  var idConversa = objetoDenuncia.idConversa
+  delete objetoDenuncia.idConversa
+  const timestamp = serverTimestamp()
+  objetoDenuncia.timestamp = timestamp;
 
+  db.doc(`chats/${idConversa}`).collection("denuncia").add(
+    objetoDenuncia
+  ).then(() => {
+    db.doc(`chats/${idConversa}`).update({
+      bloqueado: true,
+      timestamp: timestamp,
+      ultimaMensagem: "Chat bloqueado!"
+    }).then(() => {
+      alert("Denuncia salva!")
+      window.location.reload()
+    })
+  }).catch(e => {
+    console.log(e)
+  })
+}
 

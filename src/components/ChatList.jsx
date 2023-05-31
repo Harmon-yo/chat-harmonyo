@@ -43,6 +43,7 @@ export default function ChatList(props) {
             ultimaMensagem: doc.data().ultimaMensagem,
             lida: doc.data().lida,
             timestamp: doc.data().timestamp,
+            bloqueado: doc.data().bloqueado
           },
         }))
       );

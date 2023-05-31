@@ -16,6 +16,7 @@ import {
 } from "@mui/material";
 import SmsFailedIcon from "@mui/icons-material/SmsFailed";
 import { chat } from "../styles/Chat.Styles";
+import { denunciarUsuario } from "../services/utils";
 
 import {
   Button,
@@ -52,7 +53,10 @@ export default function ChatHeader(props) {
   };
 
   const denunciar = () => {
+
+   
     if (ehOutro) {
+     
       if (outro === "") {
         setErro(true);
         return;
@@ -62,8 +66,13 @@ export default function ChatHeader(props) {
       setErro(true);
       return;
     }
-
-    alert("Denúncia enviada com sucesso!");
+    var objetoDenuncia = {
+      motivo: outro? outro: denuncia,
+      idDenunciante: Number(sessionStorage.idUsuario),
+      idDenunciado: props.idUsuarioConversa,
+      idConversa: props.idConversa
+    }
+    denunciarUsuario(objetoDenuncia)
     handleClose();
   };
 
@@ -94,9 +103,9 @@ export default function ChatHeader(props) {
               onChange={handleChange}
               error={erro}
             >
-              <MenuItem value={0}>Bullying e assédio</MenuItem>
-              <MenuItem value={1}>Palavras ofensivas</MenuItem>
-              <MenuItem value={2}>Informações incorretas prejudiciais</MenuItem>
+              <MenuItem value={"Bullying e assédio"}>Bullying e assédio</MenuItem>
+              <MenuItem value={"Palavras ofensivas"}>Palavras ofensivas</MenuItem>
+              <MenuItem value={"Informações incorretas prejudiciais"}>Informações incorretas prejudiciais</MenuItem>
               <MenuItem value={3}>Outro</MenuItem>
             </Select>
             {ehOutro ? (

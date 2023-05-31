@@ -74,7 +74,7 @@ export default function CaixaMensagem(props) {
             item
             xs={12}
             style={{
-              backgroundColor: "#6ddb94",
+              backgroundColor: '#03B441',
               maxWidth: "fit-content",
               padding: "10px",
               paddingTop: "5px",
