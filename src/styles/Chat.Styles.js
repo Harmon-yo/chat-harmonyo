@@ -146,9 +146,11 @@ const chatStyles = () => {
             voltar: {
                 display: 'flex',
                 justifyContent: 'left',
-                width: '50px',
-                height: '40px',
+                width: 'fit-content',
+                height: 'fit-content',
+                borderRadius: "20px",
                 padding: '0px',
+                marginRight: '20px',
             },
 
             setaVoltar: {

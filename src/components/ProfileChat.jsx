@@ -16,8 +16,8 @@ export default function ProfileChat() {
   return (
     <>
       <ListItem sx={chat().chatProfile}>
-        <ListItem sx={chat().voltar}>
-          <ArrowBackIcon sx={chat().setaVoltar}/>
+        <ListItem button sx={chat().voltar}>
+          <ArrowBackIcon  sx={chat().setaVoltar}/>
         </ListItem>
         <ListItemIcon>
           <Avatar src="https://www.w3schools.com/howto/img_avatar.png" />
