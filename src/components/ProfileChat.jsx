@@ -20,10 +20,10 @@ export default function ProfileChat() {
           <ArrowBackIcon  sx={chat().setaVoltar}/>
         </ListItem>
         <ListItemIcon>
-          <Avatar src="https://www.w3schools.com/howto/img_avatar.png" />
+          <Avatar src={sessionStorage.src}/>
         </ListItemIcon>
         <Typography variant="h6" component="div">
-          Nome do Usuário
+          {sessionStorage.nomeUsuario}
         </Typography>
       </ListItem>
     </>

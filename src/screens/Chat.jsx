@@ -32,6 +32,8 @@ const Chat = () => {
 
   sessionStorage.setItem("idUsuario", 1);
   sessionStorage.setItem("tipo", "aluno");
+  sessionStorage.setItem("nomeUsuario", "Vinícius")
+
 
   useEffect(() => {
     const q = query(
@@ -64,7 +66,12 @@ const Chat = () => {
             bloqueado: doc.data().bloqueado
           },
         }))
+        
       );
+      sessionStorage.tipo === "aluno"
+      ? sessionStorage.src = snapshot.docs[0].data().srcAluno
+      : sessionStorage.src = snapshot.docs[0].data().srcProfessor
+   
     });
 
     setCarregouConversas(true);
