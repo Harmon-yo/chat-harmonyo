@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "react-chat-elements/dist/main.css";
-import { chat } from "../styles/Chat.Styles.js";
-import "../css/chat.css";
+import "../css/style.css";
 import db from "../services/firebase";
+import "./style.css";
 import {
   Box,
   CircularProgress,
@@ -81,12 +81,12 @@ const Chat = () => {
   if (carregouConversas) {
     return (
       <>
-        <Box sx={chat().chatPage}>
-          <Box sx={chat().chatContainer}>
-            <Box sx={chat().chatLeft}>
+        <Box className="chat_page">
+          <Box className="chat_container">
+            <Box className="chat_left">
               <ProfileChat />
 
-              <Box sx={chat().chatListContainer}>
+              <Box className="chat_list_container">
                 <ChatList
                   onChatClick={(chat) => {
                     
@@ -105,7 +105,7 @@ const Chat = () => {
                 />
               </Box>
             </Box>
-            <Box sx={chat().messageContainer}>
+            <Box className="message_container">
               {activeChat ? (
                 <>
                   <ChatContainer
@@ -120,7 +120,7 @@ const Chat = () => {
                   />
                 </>
               ) : (
-                <Box sx={chat().emptyChat}>
+                <Box className="empty_chat">
                   <p>Olá! Seja bem vindo ao chat</p>
                   <p>Clique em algum chat para começar a conversar</p>
                 </Box>
